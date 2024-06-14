@@ -1,7 +1,24 @@
-function Show-Menu {
+function Show-Message {
+    Write-Host "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    Write-Host ""
+    Write-Host "                                            Welcome to Visual Studio Code extension installer"
+    Write-Host ""
+    Write-Host "                                         Below you should see a selection of options to choose from"
+    Write-Host "                                        Will be updated frequently to include new/different extensions"
+    Write-Host "                                            and will have newer options in the future as well"
+    Write-Host ""
+    Write-Host "                                                    Script written by: Jason Kay"
+    Write-Host "                                                    Script written on: June 14th 2024"
+    Write-Host ""
+    Write-Host "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    Write-Host ""
+    Write-Host ""
+}
+
+function Show-Menu {        
     param (
         [string[]]$MenuItems,
-        [string]$PromptMessage = "Select an option (use arrow keys to navigate and Enter to select):"
+        [string]$PromptMessage = "Select an what language of extensions you'd like to install below (use arrow keys to navigate and Enter to select):"
     )
 
     $currentSelection = 0
@@ -9,6 +26,7 @@ function Show-Menu {
 
     while ($true) {
         Clear-Host
+        Show-Message # <--- Main Message Function
         Write-Host $PromptMessage
         for ($i = 0; $i -lt $MenuItems.Length; $i++) {
             if ($MenuItems[$i] -eq "Return to Main Menu" -or $MenuItems[$i] -eq "Exit") {
@@ -49,13 +67,14 @@ function Show-Menu {
 }
 
 function Install-Extensions {
+    
+
     $mainMenuItems = @(
         "Linters"
         "HTML Extensions",
         "Java Extensions",
         "Extension Packs",
-        "Other Extensions",
-        
+        "Other Extensions",        
         "Exit"
     )
 
@@ -202,8 +221,7 @@ function Install-ExtensionSelection {
     )
 
     $selectionMenuItems = $extensions | ForEach-Object { $_.Name }
-    $selectionMenuItems += "Install All"
-    $selectionMenuItems += ""
+    $selectionMenuItems += "Install All"    
     $selectionMenuItems += "Return to Main Menu"  # Adding return option
 
     $selection = Show-Menu -menuItems $selectionMenuItems -promptMessage "Select the extensions to install:"
