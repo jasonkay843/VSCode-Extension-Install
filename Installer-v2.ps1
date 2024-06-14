@@ -77,10 +77,7 @@ function Install-Extensions {
             }
             "Other Extensions" {
                 Install-OtherExtensions
-            }
-            "Return to Main Menu" {
-                return
-            }
+            }                       
             "Exit" {
                 exit
             }
