@@ -55,7 +55,7 @@ function Install-Extensions {
         "Java Extensions",
         "Extension Packs",
         "Other Extensions",
-        "Return to Main Menu",
+        
         "Exit"
     )
 
